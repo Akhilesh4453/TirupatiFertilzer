@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Details</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    /* Add this CSS to hide the about content by default */
+    #aboutContent {
+      display: none;
+    }
+  </style>
+  <script>
+    // Add this JavaScript to toggle the visibility of the about content
+    function toggleAbout() {
+      var aboutContent = document.getElementById("aboutContent");
+      if (aboutContent.style.display === "none") {
+        aboutContent.style.display = "block";
+      } else {
+        aboutContent.style.display = "none";
+      }
+    }
+
+    // Fetching the order form and adding a submit event listener
+    const orderForm = document.getElementById('orderForm');
+    orderForm.addEventListener('submit', submitOrderForm);
+
+    // Function to handle form submission
+    function submitOrderForm(event) {
+      event.preventDefault(); // Prevents form submission
+      const location = document.getElementById('location').value;
+      const payment = document.getElementById('payment').value;
+
+      // Perform the order processing logic here
+      // For simplicity, let's just display a confirmation message
+      const confirmationMessage = `Order placed successfully! Your order will be delivered to ${location}. Payment method: ${payment}.`;
+
+      // Display the confirmation message in the HTML
+      const confirmationElement = document.getElementById('confirmation');
+      confirmationElement.textContent = confirmationMessage;
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <!-- Your header content goes here -->
+  </header>
+
+  <main>
+    <h1>Order Details</h1>
+    <form id="orderForm">
+      <label for="location">Delivery Location:</label>
+      <input type="text" id="location" required>
+      <br>
+      <label for="payment">Payment Method:</label>
+      <select id="payment" required>
+        <option value="">Select Payment Method</option>
+        <option value="Cash on Delivery">Cash on Delivery</option>
+        <option value="Credit Card">Credit Card</option>
+        <option value="Bank Transfer">Bank Transfer</option>
+      </select>
+      <br>
+      <button type="submit">Place Order</button>
+    </form>
+    <p id="confirmation"></p> <!-- Element to display the confirmation message -->
+  </main>
+</body>
+</html>

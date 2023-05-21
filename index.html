@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tirupati Fertilizer</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="C:\Users\dubey\Dynamic Web Page\Tirupati Fertilizer\WhatsApp Image 2023-05-17 at 7.30.16 PM.jpeg" alt="Shop Image">
+  </header>
+
+  <main>
+    <form id="customerForm">
+      <label for="name">नाम:</label>
+      <input type="text" id="name" lang="hi" required>
+      <br>
+      <label for="phone">फोन नंबर:</label>
+      <input type="text" id="phone" lang="mr" required>
+      <br>
+      <button type="submit">Submit</button>
+    </form>    
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    // Fetching the customer form and adding a submit event listener
+    const customerForm = document.getElementById('customerForm');
+    customerForm.addEventListener('submit', submitForm);
+
+    // Function to handle form submission
+    function submitForm(event) {
+      event.preventDefault(); // Prevents form submission
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+
+      // You can send the form data to the server using AJAX or fetch API
+      // For simplicity, let's just log the values to the console
+      console.log('Name:', name);
+      console.log('Phone:', phone);
+
+      // Store the customer information in localStorage
+      localStorage.setItem('name', name);
+      localStorage.setItem('phone', phone);
+
+      // Redirect to the order page
+      window.location.href = 'order.html';
+    }
+  </script>
+</body>
+</html>
